@@ -138,5 +138,18 @@ public class DateUtil {
 	 * Date time = c.getTime();//默认获取的是当前时间 System.out.println(new Date());
 	 * System.out.println(time); }
 	 */
-
+	
+	/**
+	 * 判断是否为今年
+	 * @param date
+	 * @return
+	 */
+	public static boolean isThisYear(Date date) {
+		SimpleDateFormat smt = new SimpleDateFormat("yyyy");
+		String dateStr = smt.format(date);
+		String todayStr = smt.format(new Date());
+		return dateStr.equals(todayStr);
+	}
+	
+	
 }

@@ -1,6 +1,8 @@
 package com.majingji.utils;
 
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
+import java.net.URL;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -13,6 +15,24 @@ import java.util.regex.Pattern;
  * @date: 2019年11月7日 上午9:04:13
  */
 public class StringUtil {
+	/**
+	 * 校验传入的参数是否为url
+	 * @param param
+	 * @return
+	 */
+	public static boolean isHttpUrl(String param) {
+		 URL url;  
+		 try {  
+	         url = new URL(param);  
+	         InputStream in = url.openStream();  
+	         return true; 
+	    } catch (Exception e1) {  
+	         System.out.println("连接打不开!");  
+	         url = null;  
+	    }  
+		 return false;
+		
+	}
 	// 方法1：判断源字符串是否有值，空引号(空白字符串)也算没值 (5分)
 	public static boolean hasLength(String src) {
 		return null != src && src.length() > 0;
